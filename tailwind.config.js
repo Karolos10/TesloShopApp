@@ -4,6 +4,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in-out', // Define la animación con duración y timing
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
       },
@@ -11,6 +20,6 @@ module.exports = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["night"], // Configuración de temas
+    themes: ["light", "dark", "night"], // Configuración de temas
   },
 };
