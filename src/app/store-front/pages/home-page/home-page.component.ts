@@ -14,7 +14,9 @@ export class HomePageComponent {
   productResource = rxResource({
     request: () => ({}),
     loader: ({request}) => {
-      return this.productService.getProducts();
+      return this.productService.getProducts({
+        limit: 1,
+      });
     },
   });
 }
