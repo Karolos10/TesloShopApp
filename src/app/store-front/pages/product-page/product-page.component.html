@@ -6,7 +6,8 @@
 
 @if (productResource.hasValue()) {
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-    <p>Imagenes</p>
+    <!-- <product-carrusel [images]="productResource.value()?.images ?? []" /> -->
+    <product-carrusel [images]="productResource.value().images" />
     <div>
       <h2 class="text-2xl font-bold">
         {{ productResource.value().title }}
