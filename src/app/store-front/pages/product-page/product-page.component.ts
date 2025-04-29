@@ -1,8 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../../../products/services/products.service';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-product-page',
   imports: [],
   templateUrl: './product-page.component.html',
 })
-export class ProductPageComponent { }
+export class ProductPageComponent {
+
+  activateRoute = inject(ActivatedRoute);
+  productSerivec = inject(ProductsService);
+
+  productIdSlug= this.activateRoute.snapshot.params['idSlug'];
+
+  productResource = rxResource({
+    request: () => ({ idSlug: this.productIdSlug}),
+    loader: ({ request}) => this.productSerivec.getProductByIdSlug(request.idSlug)
+  })
+}

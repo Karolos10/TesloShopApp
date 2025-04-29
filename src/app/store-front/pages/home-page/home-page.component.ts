@@ -15,7 +15,7 @@ export class HomePageComponent {
     request: () => ({}),
     loader: ({request}) => {
       return this.productService.getProducts({
-        limit: 10,
+        limit: 9,
       });
     },
   });
